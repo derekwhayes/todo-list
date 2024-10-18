@@ -38,6 +38,8 @@ const fabBtnPressed = () => {
 
 tasksInstance.fabDiv.addEventListener('click', fabBtnPressed);
 
+
+
 taskListItems.forEach((task) => {
     task.addEventListener('click', (e) => {
         console.log(`${e.target} clicked!`);
@@ -46,7 +48,8 @@ taskListItems.forEach((task) => {
 
 const homeBtn = document.querySelector('h1');
 homeBtn.addEventListener('click', () => {
-    console.log('Home clicked');
+    tasks();
+    console.log('home clicked');
 });
 
 const menuBtn = document.querySelector('.menuBtn');
