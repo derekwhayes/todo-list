@@ -13,10 +13,22 @@ const tasks = (() => {
     
     const addTaskData = (taskData) => {
         const taskList = document.createElement('ul');
+        taskList.classList.add('taskList');
         
         taskData.forEach(task => {
             const listItem = document.createElement('li');
-            listItem.innerText = task.title;
+            listItem.classList.add('taskListItem');
+
+            const titleSpan = document.createElement('span');
+            titleSpan.classList.add('titleSpan');
+            titleSpan.innerText = task.title;
+            
+            const dueDateSpan = document.createElement('span');
+            dueDateSpan.classList.add('dueDateSpan');
+            dueDateSpan.innerText = task.dueDate;
+            
+            listItem.append(titleSpan);
+            listItem.append(dueDateSpan);
             taskList.appendChild(listItem);
         });
     
