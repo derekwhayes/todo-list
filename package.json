@@ -1,0 +1,18 @@
+{
+  "name": "todo-list",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack",
+    "dev": "webpack serve",
+    "deploy": "git subtree push --prefix dist origin gh-pages"
+  },
+  "keywords": [],
+  "author": "Derek Hayes <derekwhayes@icloud.com> (https://derekwhayes.com)",
+  "license": "ISC",
+  "description": "A classic todo list webapp.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/derekwhayes/todo-list.git"
+  }
+}
