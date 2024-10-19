@@ -1,3 +1,5 @@
+import {categoryDetail} from "./categoryDetail.js";
+
 const tasks = (category) => {
 
     const main = document.querySelector('main');
@@ -27,6 +29,8 @@ const tasks = (category) => {
     categoryHeader.append(headerOptionIconDiv);
     main.append(categoryHeader);
 
+    // -----
+
     const addTaskData = (tasks) => {
         const taskList = document.createElement('ul');
         taskList.classList.add('list');
@@ -53,6 +57,10 @@ const tasks = (category) => {
         const taskListItems = document.querySelectorAll('.taskListItem');
         return taskListItems;
     }
+    
+    headerOptionIconDiv.addEventListener('click', () => {
+        categoryDetail(category);
+    });
 
     return {
         addTaskData,
