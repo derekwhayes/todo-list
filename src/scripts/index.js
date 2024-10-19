@@ -11,6 +11,15 @@ class Task {
     }
 }
 
+class Category {
+    constructor(title, description, notes, tasks) {
+        this.title = title;
+        this.description = description;
+        this.notes = notes;
+        this.tasks = tasks;
+    }
+}
+
 const createSampleData = (() => {
     // sample data
     const sampleTask = new Task('Sample Task', 'Sample Description', '10-31-2024', 'low', 'Get it done.');
@@ -22,23 +31,29 @@ const createSampleData = (() => {
     taskData.push(sampleTask2);
     taskData.push(sampleTask3);
 
+    const sampleCategory = new Category('Sample Category', 'Sample Description', 'notes for me', taskData);
+
     return {
-        taskData
+        taskData,
+        sampleCategory
     }
 })();
 
+// TASK PAGE
 const tasksInstance = tasks();
 const taskListItems = tasksInstance.addTaskData(createSampleData.taskData);
 
+const fabBtnPressed = (e) => {
+    const targetSvg = e.target.closest('svg');
+    console.log('fabBtn pressed', targetSvg);
 
-
-const fabBtnPressed = () => {
-    console.log('fabBtn pressed');
+    // see which screen the fab is being clicked on
+    if (targetSvg.classList.contains('taskFab')) {
+        console.log('yes');
+    }
 }
 
 tasksInstance.fabDiv.addEventListener('click', fabBtnPressed);
-
-
 
 taskListItems.forEach((task) => {
     task.addEventListener('click', (e) => {
@@ -46,6 +61,7 @@ taskListItems.forEach((task) => {
     });
 });
 
+// NAV BAR
 const homeBtn = document.querySelector('h1');
 homeBtn.addEventListener('click', () => {
     tasks();
