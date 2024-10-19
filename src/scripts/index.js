@@ -26,11 +26,33 @@ const createSampleData = (() => {
     const sampleTask = new Task('Sample Task', 'Sample Description', '10-31-2024', 'low', 'Get it done.');
     const sampleTask2 = new Task('Second Task', 'This is a second task', '11-03-2024', 'medium', 'For real.');
     const sampleTask3 = new Task('Third Sample', 'This again?', '12-12-2024', 'low', "That's enough, I think.");
+    const sampleTask4 = new Task('Sample Task', 'Sample Description', '10-31-2024', 'low', 'Get it done.');
+    const sampleTask5 = new Task('Second Task', 'This is a second task', '11-03-2024', 'medium', 'For real.');
+    const sampleTask6 = new Task('Third Sample', 'This again?', '12-12-2024', 'low', "That's enough, I think.");
+    const sampleTask7 = new Task('Sample Task', 'Sample Description', '10-31-2024', 'low', 'Get it done.');
+    const sampleTask8 = new Task('Second Task', 'This is a second task', '11-03-2024', 'medium', 'For real.');
+    const sampleTask9 = new Task('Third Sample', 'This again?', '12-12-2024', 'low', "That's enough, I think.");
+    const sampleTask10 = new Task('Third Sample', 'This again?', '12-12-2024', 'low', "That's enough, I think.");
+    const sampleTask11 = new Task('Sample Task', 'Sample Description', '10-31-2024', 'low', 'Get it done.');
+    const sampleTask12 = new Task('Second Task', 'This is a second task', '11-03-2024', 'medium', 'For real.');
+    const sampleTask13 = new Task('Third Sample', 'This again?', '12-12-2024', 'low', "That's enough, I think.");
 
     const taskData = [];
     taskData.push(sampleTask);
     taskData.push(sampleTask2);
     taskData.push(sampleTask3);
+    taskData.push(sampleTask4);
+    taskData.push(sampleTask5);
+    taskData.push(sampleTask6);
+    taskData.push(sampleTask7);
+    taskData.push(sampleTask8);
+    taskData.push(sampleTask9);
+    taskData.push(sampleTask10);
+    taskData.push(sampleTask11);
+    taskData.push(sampleTask12);
+    taskData.push(sampleTask13);
+
+
 
     const sampleCategory = new Category('Sample Category', 'Sample Description', 'notes for me', taskData);
 

@@ -63,6 +63,8 @@ body {
 
 /* HEADER */
 header {
+    position: fixed;
+    width: 100%;
     height: 10vh;
     background-color: var(--primary);
     font-family: poppins-bold;
@@ -79,13 +81,13 @@ header path {
 
 /* MAIN */
 main {
-    height: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
 }
 
 .fabDiv {
-    position: absolute;
+    position: fixed;
     bottom: 1.5rem;
     right: 1.5rem;    
 }
@@ -94,8 +96,27 @@ main {
     filter: drop-shadow( 2px 2px 2px rgba(0, 0, 0, .7));
 }
 
+/* TASK CATEGORY HEADER */
+.categoryHeader {
+    background-color: var(--secondary);
+    height: 8vh;
+    width: 100%;
+    position: fixed;
+    top: 10vh;
+    color: #fff;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+.headerOptionIconDiv {
+    padding-top: 1rem;
+}
+
 /* LISTS */
 .list {
+    margin: 16vh 0;
     padding: 2rem 1rem;
     width: 100%;
 }
@@ -111,6 +132,10 @@ main {
 }
 
 /* CATEGORIES */
+.categoryList {
+    margin: 8vh 0;
+}
+
 .categoryListItem {
     display: block;
     text-align: center;
