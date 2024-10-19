@@ -104,12 +104,6 @@ const runTaskPage = (category) => {
     tasksInstance.fabDiv.addEventListener('click', () => {
         console.log('goto empty task detail page')
     });
-
-    taskListItems.forEach((task) => {
-        task.addEventListener('click', (e) => {
-            console.log(`goto ${e.target} detail page`);
-        });
-    });
 }
 
 runCategoryPage();

@@ -1,4 +1,5 @@
 import {categoryDetail} from "./categoryDetail.js";
+import {taskDetail} from "./taskDetail.js";
 
 const tasks = (category) => {
 
@@ -51,6 +52,12 @@ const tasks = (category) => {
             listItem.append(titleSpan);
             listItem.append(dueDateSpan);
             taskList.append(listItem);
+
+            listItem.addEventListener('click', (e) => {
+                console.log(`goto ${e.target} detail page`);
+                main.innerHTML = '';
+                taskDetail(task);
+            });
         });
 
         main.append(taskList);
