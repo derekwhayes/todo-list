@@ -68,8 +68,8 @@ const createSampleData = (() => {
 // NAV BAR ---------------------
 const homeBtn = document.querySelector('h1');
 homeBtn.addEventListener('click', () => {
-    
-    categories();
+    main.innerHTML = '';
+    runCategoryPage();
     console.log('goto category list page');
 });
 

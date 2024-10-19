@@ -59,6 +59,7 @@ const tasks = (category) => {
     }
     
     headerOptionIconDiv.addEventListener('click', () => {
+        main.innerHTML = '';
         categoryDetail(category);
     });
 
