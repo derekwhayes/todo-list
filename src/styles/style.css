@@ -115,6 +115,29 @@ main {
     padding-top: 1rem;
 }
 
+/* CATEGORY DETAILS */
+.categoryDetailIcons {
+    align-self: flex-end;
+    display: flex;
+    gap: 1rem;
+}
+
+.detailContainer {
+    margin-top: 18vh;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.detailContainer h3 {
+    font-family: poppins-bold;
+}
+
+.detailContainer p {
+    padding-left: 1rem;
+}
+
 /* LISTS */
 .list {
     margin: 16vh 0;
