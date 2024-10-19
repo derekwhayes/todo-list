@@ -97,7 +97,7 @@ main {
 }
 
 /* TASK CATEGORY HEADER */
-.categoryHeader {
+.detailHeader {
     background-color: var(--secondary);
     height: 8vh;
     width: 100%;
@@ -116,7 +116,7 @@ main {
 }
 
 /* CATEGORY DETAILS */
-.categoryDetailIcons {
+.detailIcons {
     align-self: flex-end;
     display: flex;
     gap: 1rem;

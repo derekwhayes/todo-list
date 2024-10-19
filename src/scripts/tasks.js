@@ -17,7 +17,7 @@ const tasks = (category) => {
     
     // add category header
     const categoryHeader = document.createElement('div');
-    categoryHeader.classList.add('categoryHeader');
+    categoryHeader.classList.add('detailHeader');
 
     const categoryHeaderH2 = document.createElement('h2');
     categoryHeaderH2.textContent = category.title;

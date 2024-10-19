@@ -6,13 +6,13 @@ const taskDetail = (task) => {
 
         // add task header
         const taskHeader = document.createElement('div');
-        taskHeader.classList.add('taskHeader');
+        taskHeader.classList.add('detailHeader');
 
         const taskHeaderH2 = document.createElement('h2');
         taskHeaderH2.textContent = task.title;
 
         const icons = document.createElement('div');
-        icons.classList.add('taskDetailIcons');
+        icons.classList.add('detailIcons');
 
         const headerEditIconDiv = document.createElement('span');
         headerEditIconDiv.classList.add('headerEditIconDiv');
