@@ -14,11 +14,12 @@ const tasks = () => {
     
     const addTaskData = (taskData) => {
         const taskList = document.createElement('ul');
-        taskList.classList.add('taskList');
+        taskList.classList.add('list');
         
         taskData.forEach(task => {
             const listItem = document.createElement('li');
             listItem.classList.add('taskListItem');
+            listItem.classList.add('listItem');
 
             const titleSpan = document.createElement('span');
             titleSpan.classList.add('titleSpan');

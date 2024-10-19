@@ -1,5 +1,6 @@
 import "../styles/style.css";
-import {tasks} from "./tasks.js";
+import { categories } from "./categories.js";
+import { tasks } from "./tasks.js";
 
 class Task {
     constructor(title, description, dueDate, priority, notes) {
@@ -33,42 +34,53 @@ const createSampleData = (() => {
 
     const sampleCategory = new Category('Sample Category', 'Sample Description', 'notes for me', taskData);
 
+    const categoryData = [];
+    categoryData.push(sampleCategory);
+
     return {
         taskData,
-        sampleCategory
+        categoryData
     }
 })();
 
-// TASK PAGE
-const tasksInstance = tasks();
-const taskListItems = tasksInstance.addTaskData(createSampleData.taskData);
-
-const fabBtnPressed = (e) => {
-    const targetSvg = e.target.closest('svg');
-    console.log('fabBtn pressed', targetSvg);
-
-    // see which screen the fab is being clicked on
-    if (targetSvg.classList.contains('taskFab')) {
-        console.log('yes');
-    }
-}
-
-tasksInstance.fabDiv.addEventListener('click', fabBtnPressed);
-
-taskListItems.forEach((task) => {
-    task.addEventListener('click', (e) => {
-        console.log(`${e.target} clicked!`);
-    });
-});
-
-// NAV BAR
+// NAV BAR ---------------------
 const homeBtn = document.querySelector('h1');
 homeBtn.addEventListener('click', () => {
-    tasks();
-    console.log('home clicked');
+    
+    categories();
+    console.log('goto category list page');
 });
 
-const menuBtn = document.querySelector('.menuBtn');
-menuBtn.addEventListener('click', () => {
-    console.log('Menu clicked');
-});
+
+const runCategoryPage = () => {
+    const categoriesInstance = categories();
+    const categoryListItems = categoriesInstance.addCategoryData(createSampleData.categoryData);
+
+    categoriesInstance.fabDiv.addEventListener('click', () => {
+        console.log('goto empty category detail page');
+    });
+
+    categoryListItems.forEach((category) => {
+        category.addEventListener('click', (e) => {
+            console.log(`goto ${e.target} detail page`);
+        });
+    });
+}
+
+// TASKS ------------------------
+const runTaskPage = () => {
+    const tasksInstance = tasks();
+    const taskListItems = tasksInstance.addTaskData(createSampleData.taskData);
+
+    tasksInstance.fabDiv.addEventListener('click', () => {
+        console.log('goto empty task detail page')
+    });
+
+    taskListItems.forEach((task) => {
+        task.addEventListener('click', (e) => {
+            console.log(`goto ${e.target} detail page`);
+        });
+    });
+}
+
+runCategoryPage();

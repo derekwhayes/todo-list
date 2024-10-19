@@ -14,27 +14,26 @@ const categories = () => {
     
     const addCategoryData = (categoryData) => {
         const categoryList = document.createElement('ul');
-        categoryList.classList.add('taskList');
+        categoryList.classList.add('list');
+        categoryList.classList.add('categoryList');
         
-        categoryData.forEach(task => {
+        categoryData.forEach(category => {
             const listItem = document.createElement('li');
-            listItem.classList.add('taskListItem');
+            listItem.classList.add('categoryListItem');
+            listItem.classList.add('listItem');
 
-            const titleSpan = document.createElement('span');
-            titleSpan.classList.add('titleSpan');
-            titleSpan.innerText = task.title;
+            listItem.innerText = category.title;
             
-            listItem.append(titleSpan);
-            taskList.append(listItem);
+            categoryList.append(listItem);
         });
 
         main.append(categoryList);
-        const categoryListItems = document.querySelectorAll('.taskListItem');
+        const categoryListItems = document.querySelectorAll('.categoryListItem');
         return categoryListItems;
     }
 
     return {
-        addcategoryData,
+        addCategoryData,
         fabDiv
     };
 
