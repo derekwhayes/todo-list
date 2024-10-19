@@ -1,5 +1,5 @@
-const tasks = () => {
-    
+const tasks = (category) => {
+
     const main = document.querySelector('main');
     
     // add FAB
@@ -12,11 +12,12 @@ const tasks = () => {
         main.append(fabDiv);
     }
     
-    const addTaskData = (taskData) => {
+    const addTaskData = (tasks) => {
+        console.log(tasks);
         const taskList = document.createElement('ul');
         taskList.classList.add('list');
         
-        taskData.forEach(task => {
+        tasks.forEach(task => {
             const listItem = document.createElement('li');
             listItem.classList.add('taskListItem');
             listItem.classList.add('listItem');

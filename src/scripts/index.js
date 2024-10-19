@@ -51,6 +51,7 @@ homeBtn.addEventListener('click', () => {
     console.log('goto category list page');
 });
 
+const main = document.querySelector('main');
 
 const runCategoryPage = () => {
     const categoriesInstance = categories();
@@ -62,15 +63,21 @@ const runCategoryPage = () => {
 
     categoryListItems.forEach((category) => {
         category.addEventListener('click', (e) => {
-            console.log(`goto ${e.target} detail page`);
+            console.log(`goto ${e.target} task list page`);
+
+            const index = Array.prototype.indexOf.call(categoryListItems, category);
+            runTaskPage(createSampleData.categoryData[index]);
+            
+            
         });
     });
 }
 
 // TASKS ------------------------
-const runTaskPage = () => {
-    const tasksInstance = tasks();
-    const taskListItems = tasksInstance.addTaskData(createSampleData.taskData);
+const runTaskPage = (category) => {
+    main.innerHTML = '';
+    const tasksInstance = tasks(category);
+    const taskListItems = tasksInstance.addTaskData(category.tasks);
 
     tasksInstance.fabDiv.addEventListener('click', () => {
         console.log('goto empty task detail page')
