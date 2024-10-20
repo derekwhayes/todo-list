@@ -1,3 +1,7 @@
+import { Category } from "./index.js";
+import { categories } from "./categories.js";
+import { categoryData } from "./index.js";
+
 const editCategory = (category) => {
     
     const loadPage = (() => {
@@ -56,9 +60,30 @@ const editCategory = (category) => {
             descriptionInput.value = category.description;
             notesInput.value = category.notes;
         }
+
+        return {
+            titleInput,
+            descriptionInput,
+            notesInput,
+            submitButton
+        }
     })();
     
-    
+    const updateCategory = () => {
+        category.title = loadPage.titleInput.value;
+        category.description = loadPage.descriptionInput.value;
+        category.notes = loadPage.notesInput.value;
+        categoryData.push(category);
+        console.log(category);
+    }
+
+    loadPage.submitButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (!category) {
+            category = new Category('', '', '', []);
+        }
+        updateCategory();
+    })
 };
 
 export {editCategory};

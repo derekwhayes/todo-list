@@ -23,6 +23,7 @@ class Category {
     }
 }
 
+const categoryData = [];
 const createSampleData = (() => {
     // sample data
     const sampleTask = new Task('Sample Task', 'Sample Description', new Date("2024-10-31"), 'low', 'Get it done.');
@@ -36,7 +37,6 @@ const createSampleData = (() => {
 
     const sampleCategory = new Category('Sample Category', 'Sample Description', 'notes for me', taskData);
 
-    const categoryData = [];
     categoryData.push(sampleCategory);
 
     return {
@@ -62,20 +62,19 @@ const dateFormatter = (date) => {
 const homeBtn = document.querySelector('h1');
 homeBtn.addEventListener('click', () => {
     main.innerHTML = '';
-    runCategoryPage();
+    runCategoryPage(categoryData);
     console.log('goto category list page');
 });
 
 const main = document.querySelector('main');
 
-const runCategoryPage = () => {
+const runCategoryPage = (catData) => {
     const categoriesInstance = categories();
-    const categoryListItems = categoriesInstance.addCategoryData(createSampleData.categoryData);
+    const categoryListItems = categoriesInstance.addCategoryData(catData);
 
     // TASKS ------------------------
     // putting these listeners here made since at the time! TODO: move it to apporpriate pages
     categoriesInstance.fabDiv.addEventListener('click', () => {
-        console.log('goto empty category detail page');
         main.innerHTML = '';
         editCategory();
     });
@@ -85,7 +84,7 @@ const runCategoryPage = () => {
             console.log(`goto ${e.target} task list page`);
 
             const index = Array.prototype.indexOf.call(categoryListItems, category);
-            runTaskPage(createSampleData.categoryData[index]);
+            runTaskPage(categoryData[index]);
             
             
         });
@@ -103,6 +102,6 @@ const runTaskPage = (category) => {
     });
 }
 
-runCategoryPage();
+runCategoryPage(categoryData);
 
-export {dateFormatter};
+export {dateFormatter, Task, Category, runCategoryPage, categoryData};

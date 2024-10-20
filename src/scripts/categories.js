@@ -13,6 +13,7 @@ const categories = () => {
     }
     
     const addCategoryData = (categoryData) => {
+        // main.innerHTML = '';
         const categoryList = document.createElement('ul');
         categoryList.classList.add('list');
         categoryList.classList.add('categoryList');
