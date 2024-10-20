@@ -97,7 +97,7 @@ const editTask = (task) => {
         if (task) {
             titleInput.value = task.title;
             descriptionInput.value = task.description;
-            dueDateInput.value = task.dueDate;
+            dueDateInput.valueAsDate = task.dueDate;
             priorityInput.value = task.priority; 
             notesInput.value = task.notes;
         }

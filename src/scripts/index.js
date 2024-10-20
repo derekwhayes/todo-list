@@ -25,7 +25,7 @@ class Category {
 
 const createSampleData = (() => {
     // sample data
-    const sampleTask = new Task('Sample Task', 'Sample Description', '10-31-2024', 'low', 'Get it done.');
+    const sampleTask = new Task('Sample Task', 'Sample Description', new Date("2024-10-31"), 'low', 'Get it done.');
     const sampleTask2 = new Task('Second Task', 'This is a second task', '11-03-2024', 'medium', 'For real.');
     const sampleTask3 = new Task('Third Sample', 'This again?', '12-12-2024', 'low', "That's enough, I think.");
     const sampleTask4 = new Task('Sample Task', 'Sample Description', '10-31-2024', 'low', 'Get it done.');
