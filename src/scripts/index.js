@@ -26,35 +26,13 @@ class Category {
 const createSampleData = (() => {
     // sample data
     const sampleTask = new Task('Sample Task', 'Sample Description', new Date("2024-10-31"), 'low', 'Get it done.');
-    const sampleTask2 = new Task('Second Task', 'This is a second task', '11-03-2024', 'medium', 'For real.');
-    const sampleTask3 = new Task('Third Sample', 'This again?', '12-12-2024', 'low', "That's enough, I think.");
-    const sampleTask4 = new Task('Sample Task', 'Sample Description', '10-31-2024', 'low', 'Get it done.');
-    const sampleTask5 = new Task('Second Task', 'This is a second task', '11-03-2024', 'medium', 'For real.');
-    const sampleTask6 = new Task('Third Sample', 'This again?', '12-12-2024', 'low', "That's enough, I think.");
-    const sampleTask7 = new Task('Sample Task', 'Sample Description', '10-31-2024', 'low', 'Get it done.');
-    const sampleTask8 = new Task('Second Task', 'This is a second task', '11-03-2024', 'medium', 'For real.');
-    const sampleTask9 = new Task('Third Sample', 'This again?', '12-12-2024', 'low', "That's enough, I think.");
-    const sampleTask10 = new Task('Third Sample', 'This again?', '12-12-2024', 'low', "That's enough, I think.");
-    const sampleTask11 = new Task('Sample Task', 'Sample Description', '10-31-2024', 'low', 'Get it done.');
-    const sampleTask12 = new Task('Second Task', 'This is a second task', '11-03-2024', 'medium', 'For real.');
-    const sampleTask13 = new Task('Third Sample', 'This again?', '12-12-2024', 'low', "That's enough, I think.");
+    const sampleTask2 = new Task('Second Task', 'This is a second task', new Date('2024-11-03'), 'medium', 'For real.');
+    const sampleTask3 = new Task('Third Sample', 'This again?', new Date('2025-12-12'), 'low', "That's enough, I think.");
 
     const taskData = [];
     taskData.push(sampleTask);
     taskData.push(sampleTask2);
     taskData.push(sampleTask3);
-    taskData.push(sampleTask4);
-    taskData.push(sampleTask5);
-    taskData.push(sampleTask6);
-    taskData.push(sampleTask7);
-    taskData.push(sampleTask8);
-    taskData.push(sampleTask9);
-    taskData.push(sampleTask10);
-    taskData.push(sampleTask11);
-    taskData.push(sampleTask12);
-    taskData.push(sampleTask13);
-
-
 
     const sampleCategory = new Category('Sample Category', 'Sample Description', 'notes for me', taskData);
 
@@ -66,6 +44,19 @@ const createSampleData = (() => {
         categoryData
     }
 })();
+
+const dateFormatter = (date) => {
+    let formattedDate;
+    console.log(date.getYear())
+    console.log(new Date().getFullYear())
+    if (date.getFullYear() === new Date().getFullYear()) {
+        formattedDate = new Intl.DateTimeFormat('en-US', {month: 'short', day: 'numeric'}).format(date);
+    }
+    else {
+        formattedDate = new Intl.DateTimeFormat('en-US', {month: 'short', day: 'numeric', year: 'numeric'}).format(date);
+    }
+    return formattedDate.toString();
+}
 
 // NAV BAR ---------------------
 const homeBtn = document.querySelector('h1');
@@ -113,3 +104,5 @@ const runTaskPage = (category) => {
 }
 
 runCategoryPage();
+
+export {dateFormatter};

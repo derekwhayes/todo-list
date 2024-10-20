@@ -1,5 +1,6 @@
 import {categoryDetail} from "./categoryDetail.js";
 import {taskDetail} from "./taskDetail.js";
+import { dateFormatter } from "./index.js";
 
 const tasks = (category) => {
 
@@ -47,7 +48,7 @@ const tasks = (category) => {
             
             const dueDateSpan = document.createElement('span');
             dueDateSpan.classList.add('dueDateSpan');
-            dueDateSpan.innerText = task.dueDate;
+            dueDateSpan.innerText = dateFormatter(task.dueDate);
             
             listItem.append(titleSpan);
             listItem.append(dueDateSpan);
