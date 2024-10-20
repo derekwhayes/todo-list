@@ -2,6 +2,7 @@ import "../styles/style.css";
 import { categories } from "./categories.js";
 import { tasks } from "./tasks.js";
 import { editCategory } from "./editCategory.js";
+import { editTask } from "./editTask.js";
 
 class Task {
     constructor(title, description, dueDate, priority, notes) {
@@ -80,6 +81,8 @@ const runCategoryPage = () => {
     const categoriesInstance = categories();
     const categoryListItems = categoriesInstance.addCategoryData(createSampleData.categoryData);
 
+    // TASKS ------------------------
+    // putting these listeners here made since at the time! TODO: move it to apporpriate pages
     categoriesInstance.fabDiv.addEventListener('click', () => {
         console.log('goto empty category detail page');
         main.innerHTML = '';
@@ -98,14 +101,14 @@ const runCategoryPage = () => {
     });
 }
 
-// TASKS ------------------------
 const runTaskPage = (category) => {
     main.innerHTML = '';
     const tasksInstance = tasks(category);
     const taskListItems = tasksInstance.addTaskData(category.tasks);
 
     tasksInstance.fabDiv.addEventListener('click', () => {
-        console.log('goto empty task detail page')
+        main.innerHTML = '';
+        editTask();
     });
 }
 
