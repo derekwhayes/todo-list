@@ -1,6 +1,7 @@
 import "../styles/style.css";
 import { categories } from "./categories.js";
 import { tasks } from "./tasks.js";
+import { editCategory } from "./editCategory.js";
 
 class Task {
     constructor(title, description, dueDate, priority, notes) {
@@ -81,6 +82,8 @@ const runCategoryPage = () => {
 
     categoriesInstance.fabDiv.addEventListener('click', () => {
         console.log('goto empty category detail page');
+        main.innerHTML = '';
+        editCategory();
     });
 
     categoryListItems.forEach((category) => {

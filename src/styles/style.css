@@ -165,3 +165,8 @@ main {
     text-align: center;
     font-family: poppins-bold;
 }
+
+/* FORM */
+form {
+    margin-top: 10vh;
+}
