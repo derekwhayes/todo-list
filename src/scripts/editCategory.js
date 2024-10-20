@@ -69,18 +69,23 @@ const editCategory = (category) => {
         }
     })();
     
+
+    let isNewCategory = false;
     const updateCategory = () => {
         category.title = loadPage.titleInput.value;
         category.description = loadPage.descriptionInput.value;
         category.notes = loadPage.notesInput.value;
-        categoryData.push(category);
-        console.log(category);
+        if (isNewCategory) {
+            categoryData.push(category);
+        }
     }
 
     loadPage.submitButton.addEventListener('click', (e) => {
+        isNewCategory = false;
         e.preventDefault();
         if (!category) {
             category = new Category('', '', '', []);
+            isNewCategory = true;
         }
         updateCategory();
     })
