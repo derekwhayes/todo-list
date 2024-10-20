@@ -1,8 +1,10 @@
+import { editTask } from "./editTask";
+
 const taskDetail = (task) => {
-    console.log('you made it to task details!!!!!!!', task);
+    
+    const main = document.querySelector('main');
 
     const loadPage = (() => {
-        const main = document.querySelector('main');
 
         // add task header
         const taskHeader = document.createElement('div');
@@ -70,7 +72,17 @@ const taskDetail = (task) => {
         detailContainer.append(priorityDiv);
         detailContainer.append(notesDiv);
         main.append(detailContainer);
+
+        return {
+            headerEditIconDiv,
+            headerDeleteIconDiv
+        }
     })();
+
+    loadPage.headerEditIconDiv.addEventListener('click', () => {
+        main.innerHTML = '';
+        editTask(task);
+    })
 }
 
 export {taskDetail};

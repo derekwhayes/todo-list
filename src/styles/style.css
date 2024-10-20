@@ -183,12 +183,15 @@ form > div {
 }
 
 input,
-textarea {
+textarea,
+select {
     outline-color: var(--accent);
 }
 
 input[type='text'],
-textarea {
+input[type='date'],
+textarea,
+select {
     padding: 0.5rem;
     font-size: 1.1rem;
     font-family: poppins;
