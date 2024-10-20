@@ -48,18 +48,17 @@ const editCategory = (category) => {
 
         const submitButton = document.createElement('button');
         submitButton.setAttribute('type', 'submit');
-        submitButton.innerText = 'Submit';
+        submitButton.innerText = 'Save';
         form.append(submitButton);
+        
+        if (category) {
+            titleInput.value = category.title;
+            descriptionInput.value = category.description;
+            notesInput.value = category.notes;
+        }
     })();
     
     
-    
-    
-    
-    
-    if (category) {
-        // populate fields
-    }
 };
 
 export {editCategory};

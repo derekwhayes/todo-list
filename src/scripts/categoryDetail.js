@@ -1,8 +1,9 @@
-const categoryDetail = ((category) => {
-    console.log('You made it to the category Detail page');
+import { editCategory } from "./editCategory";
 
+const categoryDetail = ((category) => {
+    
+    const main = document.querySelector('main');
     const loadPage = (() => {
-        const main = document.querySelector('main');
 
         // add category header
         const categoryHeader = document.createElement('div');
@@ -52,7 +53,18 @@ const categoryDetail = ((category) => {
         detailContainer.append(descriptionDiv);
         detailContainer.append(notesDiv);
         main.append(detailContainer);
+
+        return {
+            headerEditIconDiv,
+            headerDeleteIconDiv
+        };
     })();
+
+    
+    loadPage.headerEditIconDiv.addEventListener('click', () => {
+        main.innerHTML = '';
+        editCategory(category);
+    });
 });
 
 export {categoryDetail};
