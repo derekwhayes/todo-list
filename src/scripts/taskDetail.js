@@ -1,4 +1,5 @@
 import { editTask } from "./editTask";
+import { dateFormatter } from "./index.js";
 
 const taskDetail = (task) => {
     
@@ -45,7 +46,7 @@ const taskDetail = (task) => {
         const dateHeader = document.createElement('h3');
         dateHeader.innerText = 'Due Date'
         const datePara = document.createElement('p');
-        datePara.innerText = task.dueDate;
+        datePara.innerText = dateFormatter(task.dueDate);
 
         const priorityDiv = document.createElement('div');
         const priorityHeader = document.createElement('h3');
