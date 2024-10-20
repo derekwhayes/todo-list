@@ -169,4 +169,43 @@ main {
 /* FORM */
 form {
     margin-top: 10vh;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    font-size: 1.1rem;
+    font-family: poppins-bold;
+}
+
+form > div {
+    display: flex;
+    flex-direction: column;
+}
+
+input,
+textarea {
+    outline-color: var(--accent);
+}
+
+input[type='text'],
+textarea {
+    padding: 0.5rem;
+    font-size: 1.1rem;
+    font-family: poppins;
+}
+
+textarea {
+    height: 6rem;
+}
+
+button[type='submit'] {
+    align-self: center;
+    padding: 1rem 3rem;
+    font-size: 1.1rem;
+    font-family: poppins-bold;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--primary);
+    color: var(--tertiary);
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.295);
 }
