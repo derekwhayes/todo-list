@@ -95,7 +95,7 @@ const editCategory = (category) => {
             isNewCategory = true;
         }
         updateCategory();
-    })
+    });
 };
 
 export {editCategory};

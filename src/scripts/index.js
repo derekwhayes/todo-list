@@ -47,8 +47,6 @@ const createSampleData = (() => {
 
 const dateFormatter = (date) => {
     let formattedDate;
-    console.log(date.getYear())
-    console.log(new Date().getFullYear())
     if (date.getFullYear() === new Date().getFullYear()) {
         formattedDate = new Intl.DateTimeFormat('en-US', {month: 'short', day: 'numeric'}).format(date);
     }
@@ -99,10 +97,10 @@ const runTaskPage = (category) => {
 
     tasksInstance.fabDiv.addEventListener('click', () => {
         main.innerHTML = '';
-        editTask();
+        editTask('', category);
     });
 }
 
 runCategoryPage(categoryData);
 
-export {dateFormatter, Task, Category, runCategoryPage, categoryData};
+export {dateFormatter, Task, Category, runCategoryPage, categoryData, runTaskPage};

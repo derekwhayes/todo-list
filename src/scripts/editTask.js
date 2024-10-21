@@ -1,4 +1,8 @@
-const editTask = (task) => {
+import { Task } from "./index.js";
+import { runTaskPage } from "./index.js"
+import { categoryData } from "./index.js";
+
+const editTask = (task, category) => {
     
     const loadPage = (() => {
         const main = document.querySelector('main');
@@ -101,7 +105,43 @@ const editTask = (task) => {
             priorityInput.value = task.priority; 
             notesInput.value = task.notes;
         }
+
+        return {
+            submitButton,
+            titleInput,
+            descriptionInput,
+            dueDateInput,
+            priorityInput,
+            notesInput
+        }
     })();
+
+    let isNewTask = false;
+    const updateTask = () => {
+        task.title = loadPage.titleInput.value;
+        task.description = loadPage.descriptionInput.value;
+        task.dueDate = new Date(loadPage.dueDateInput.value);
+        task.priority = loadPage.priorityInput.value;
+        task.notes = loadPage.notesInput.value;
+        if (isNewTask) {
+            category.tasks.push(task);
+            runTaskPage(category);
+        }
+        else {
+            main.innerHTML = '';
+            taskDetail(category);
+        }
+    }
+
+    loadPage.submitButton.addEventListener('click', (e) => {
+        isNewTask = false;
+        e.preventDefault();
+        if (!task) {
+            task = new Task('', '', '', '', '');
+            isNewTask = true;
+        }
+        updateTask();
+    })
 }
 
 export {editTask};
