@@ -1,11 +1,12 @@
 import { Task } from "./index.js";
 import { runTaskPage } from "./index.js"
 import { categoryData } from "./index.js";
+import { taskDetail } from "./taskDetail";
 
 const editTask = (task, category) => {
     
+    const main = document.querySelector('main');
     const loadPage = (() => {
-        const main = document.querySelector('main');
 
         const form = document.createElement('form');
         main.append(form);
@@ -129,7 +130,7 @@ const editTask = (task, category) => {
         }
         else {
             main.innerHTML = '';
-            taskDetail(category);
+            taskDetail(task);
         }
     }
 

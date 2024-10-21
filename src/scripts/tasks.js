@@ -57,7 +57,7 @@ const tasks = (category) => {
             listItem.addEventListener('click', (e) => {
                 console.log(`goto ${e.target} detail page`);
                 main.innerHTML = '';
-                taskDetail(task);
+                taskDetail(task, category);
             });
         });
 

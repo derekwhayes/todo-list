@@ -1,7 +1,7 @@
 import { editTask } from "./editTask";
-import { dateFormatter } from "./index.js";
+import { dateFormatter, runTaskPage } from "./index.js";
 
-const taskDetail = (task) => {
+const taskDetail = (task, category) => {
     
     const main = document.querySelector('main');
 
@@ -83,6 +83,12 @@ const taskDetail = (task) => {
     loadPage.headerEditIconDiv.addEventListener('click', () => {
         main.innerHTML = '';
         editTask(task);
+    });
+
+    loadPage.headerDeleteIconDiv.addEventListener('click', () => {
+        const index = category.tasks.findIndex((item) => item.title === task.title);
+        category.tasks.splice(index, 1);
+        runTaskPage(category);
     })
 }
 
