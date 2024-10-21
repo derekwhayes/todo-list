@@ -69,6 +69,7 @@ homeBtn.addEventListener('click', () => {
 const main = document.querySelector('main');
 
 const runCategoryPage = (catData) => {
+    main.innerHTML = '';
     const categoriesInstance = categories();
     const categoryListItems = categoriesInstance.addCategoryData(catData);
 

@@ -1,11 +1,13 @@
 import { Category } from "./index.js";
-import { categories } from "./categories.js";
+import { categoryDetail } from "./categoryDetail.js";
 import { categoryData } from "./index.js";
+import { runCategoryPage } from "./index.js";
 
 const editCategory = (category) => {
     
+    const main = document.querySelector('main');
+    
     const loadPage = (() => {
-        const main = document.querySelector('main');
 
         const form = document.createElement('form');
         main.append(form);
@@ -77,6 +79,11 @@ const editCategory = (category) => {
         category.notes = loadPage.notesInput.value;
         if (isNewCategory) {
             categoryData.push(category);
+            runCategoryPage(categoryData);
+        }
+        else {
+            main.innerHTML = '';
+            categoryDetail(category);
         }
     }
 
