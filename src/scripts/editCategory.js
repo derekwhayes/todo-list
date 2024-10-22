@@ -23,6 +23,8 @@ const editCategory = (category) => {
         const titleInput = document.createElement('input');
         titleInput.type = 'text';
         titleInput.name = 'title';
+        titleInput.setAttribute('required', 'true');
+        titleInput.setAttribute('maxlength', '30');
         titleInput.id = 'categoryTitle'
         titleDiv.append(titleInput);
 
@@ -64,6 +66,7 @@ const editCategory = (category) => {
         }
 
         return {
+            form,
             titleInput,
             descriptionInput,
             notesInput,
@@ -92,6 +95,10 @@ const editCategory = (category) => {
     loadPage.submitButton.addEventListener('click', (e) => {
         isNewCategory = false;
         e.preventDefault();
+        if (!loadPage.form.checkValidity()) {
+            loadPage.form.reportValidity();
+            return;
+        }
         if (!category) {
             category = new Category('', '', '', []);
             isNewCategory = true;

@@ -21,7 +21,9 @@ const editTask = (task, category) => {
         const titleInput = document.createElement('input');
         titleInput.type = 'text';
         titleInput.name = 'title';
-        titleInput.id = 'taskTitle'
+        titleInput.id = 'taskTitle';
+        titleInput.setAttribute('required', 'true');
+        titleInput.setAttribute('maxlength', '25')
         titleDiv.append(titleInput);
 
         const descriptionDiv = document.createElement('div');
@@ -49,6 +51,7 @@ const editTask = (task, category) => {
         dueDateInput.id = 'dueDate';
         dueDateInput.name = 'dueDate';
         dueDateInput.type = 'date';
+        dueDateInput.setAttribute('required', 'true');
         dueDateDiv.append(dueDateInput);
 
         const priorityDiv = document.createElement('div');
@@ -107,6 +110,7 @@ const editTask = (task, category) => {
         }
 
         return {
+            form,
             submitButton,
             titleInput,
             descriptionInput,
@@ -138,6 +142,10 @@ const editTask = (task, category) => {
     loadPage.submitButton.addEventListener('click', (e) => {
         isNewTask = false;
         e.preventDefault();
+        if (!loadPage.form.checkValidity()) {
+            loadPage.form.reportValidity();
+            return;
+        }
         if (!task) {
             task = new Task('', '', '', '', '');
             isNewTask = true;
