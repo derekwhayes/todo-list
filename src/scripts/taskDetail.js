@@ -81,7 +81,7 @@ const taskDetail = (task, category) => {
     })();
 
     loadPage.headerEditIconDiv.addEventListener('click', () => {
-        history.pushState({page: 'editTask', task: task}, '', '/edit-task');
+        history.pushState({page: 'editTask', task: task}, '', '/todo-list/edit-task');
         main.innerHTML = '';
         editTask(task, category);
     });

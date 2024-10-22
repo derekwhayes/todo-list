@@ -58,7 +58,7 @@ const tasks = (category) => {
             taskList.append(listItem);
 
             listItem.addEventListener('click', (e) => {
-                history.pushState({page: 'taskDetail', task: task, category: category}, '', '/task-detail');
+                history.pushState({page: 'taskDetail', task: task, category: category}, '', '/todo-list/task-detail');
                 main.innerHTML = '';
                 taskDetail(task, category);
             });
@@ -70,7 +70,7 @@ const tasks = (category) => {
     }
     
     headerOptionIconDiv.addEventListener('click', () => {
-        history.pushState({page: 'categoryDetail', category: category}, '', '/category-detail');
+        history.pushState({page: 'categoryDetail', category: category}, '', '/todo-list/category-detail');
         main.innerHTML = '';
         categoryDetail(category);
     });

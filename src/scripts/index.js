@@ -83,7 +83,7 @@ const dateFormatter = (date) => {
 // NAV BAR ---------------------
 const homeBtn = document.querySelector('h1');
 homeBtn.addEventListener('click', () => {
-    history.pushState({page: 'categories'}, '', '/categories');
+    history.pushState({page: 'categories'}, '', '/todo-list/categories');
     main.innerHTML = '';
     runCategoryPage(categoryData);
     console.log('goto category list page');
@@ -100,7 +100,7 @@ const runCategoryPage = (catData) => {
     // TASKS ------------------------
     // putting these listeners here made since at the time! TODO: move it to apporpriate pages
     categoriesInstance.fabDiv.addEventListener('click', () => {
-        history.pushState({page: 'editCategory', category: ''}, '', '/edit-category');
+        history.pushState({page: 'editCategory', category: ''}, '', '/todo-list/edit-category');
         main.innerHTML = '';
         editCategory();
     });
@@ -108,7 +108,7 @@ const runCategoryPage = (catData) => {
     categoryListItems.forEach((category) => {
         category.addEventListener('click', (e) => {
             const index = Array.prototype.indexOf.call(categoryListItems, category);
-            history.pushState({page: 'tasks', category: categoryData[index]}, '', '/tasks');
+            history.pushState({page: 'tasks', category: categoryData[index]}, '', '/todo-list/tasks');
             runTaskPage(categoryData[index]);
             
             
@@ -122,7 +122,7 @@ const runTaskPage = (category) => {
     const taskListItems = tasksInstance.addTaskData(category.tasks);
 
     tasksInstance.fabDiv.addEventListener('click', () => {
-        history.pushState({page: 'editTask', task: '', category: category}, '', '/edit-task');
+        history.pushState({page: 'editTask', task: '', category: category}, '', '/todo-list/edit-task');
         main.innerHTML = '';
         editTask('', category);
     });
@@ -171,7 +171,7 @@ window.addEventListener('popstate', (e) => {
     }
 });
 
-history.replaceState({page: 'categories'}, '', '/categories');
+history.replaceState({page: 'categories'}, '', '/todo-list/categories');
 
 runCategoryPage(categoryData);
 
