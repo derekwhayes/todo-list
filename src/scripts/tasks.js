@@ -38,7 +38,6 @@ const tasks = (category) => {
         taskList.classList.add('list');
         
         tasks.forEach(task => {
-            console.log(task);
             const listItem = document.createElement('li');
             listItem.classList.add('taskListItem');
             listItem.classList.add('listItem');
@@ -56,6 +55,7 @@ const tasks = (category) => {
             taskList.append(listItem);
 
             listItem.addEventListener('click', (e) => {
+                history.pushState({page: 'taskDetail', task: task, category: category}, '', '/task-detail');
                 main.innerHTML = '';
                 taskDetail(task, category);
             });

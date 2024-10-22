@@ -81,8 +81,9 @@ const taskDetail = (task, category) => {
     })();
 
     loadPage.headerEditIconDiv.addEventListener('click', () => {
+        history.pushState({page: 'editTask', task: task}, '', '/edit-task');
         main.innerHTML = '';
-        editTask(task);
+        editTask(task, category);
     });
 
     loadPage.headerDeleteIconDiv.addEventListener('click', () => {
