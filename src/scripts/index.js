@@ -4,6 +4,7 @@ import { tasks } from "./tasks.js";
 import { editCategory } from "./editCategory.js";
 import { editTask } from "./editTask.js";
 import { taskDetail } from "./taskDetail.js";
+import { categoryDetail } from "./categoryDetail.js";
 
 class Task {
     constructor(title, description, dueDate, priority, notes) {
@@ -148,7 +149,6 @@ window.addEventListener('popstate', (e) => {
         else if (state.page === 'editCategory') {
             main.innerHTML = '';
             editCategory(state.category);
-            console.log(state.category);
         }
         else if (state.page === 'tasks') {
             runTaskPage(state.category);
@@ -160,6 +160,10 @@ window.addEventListener('popstate', (e) => {
         else if (state.page === 'taskDetail') {
             main.innerHTML = '';
             taskDetail(state.task, state.category);
+        }
+        else if (state.page === 'categoryDetail') {
+            main.innerHTML = '';
+            categoryDetail(state.category);
         }
     }
     else {

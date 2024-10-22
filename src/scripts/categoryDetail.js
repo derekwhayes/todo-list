@@ -64,7 +64,7 @@ const categoryDetail = (category) => {
 
     
     loadPage.headerEditIconDiv.addEventListener('click', () => {
-        history.pushState({page: 'edit-category', category: category}, '', '/edit-category');
+        history.pushState({page: 'editCategory', category: category}, '', '/edit-category');
         main.innerHTML = '';
         editCategory(category);
     });

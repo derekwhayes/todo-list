@@ -67,6 +67,7 @@ const tasks = (category) => {
     }
     
     headerOptionIconDiv.addEventListener('click', () => {
+        history.pushState({page: 'categoryDetail', category: category}, '', '/category-detail');
         main.innerHTML = '';
         categoryDetail(category);
     });
