@@ -1,7 +1,7 @@
 import { Category } from "./index.js";
 import { categoryDetail } from "./categoryDetail.js";
 import { categoryData } from "./index.js";
-import { runCategoryPage } from "./index.js";
+import { runCategoryPage, saveData } from "./index.js";
 
 const editCategory = (category) => {
     
@@ -79,10 +79,12 @@ const editCategory = (category) => {
         category.notes = loadPage.notesInput.value;
         if (isNewCategory) {
             categoryData.push(category);
+            saveData();
             runCategoryPage(categoryData);
         }
         else {
             main.innerHTML = '';
+            saveData();
             categoryDetail(category);
         }
     }

@@ -1,6 +1,5 @@
 import { Task } from "./index.js";
-import { runTaskPage } from "./index.js"
-import { categoryData } from "./index.js";
+import { runTaskPage, saveData } from "./index.js"
 import { taskDetail } from "./taskDetail";
 
 const editTask = (task, category) => {
@@ -126,9 +125,11 @@ const editTask = (task, category) => {
         task.notes = loadPage.notesInput.value;
         if (isNewTask) {
             category.tasks.push(task);
+            saveData();
             runTaskPage(category);
         }
         else {
+            saveData();
             main.innerHTML = '';
             taskDetail(task);
         }

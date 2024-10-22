@@ -1,6 +1,6 @@
 import { categoryData } from "./index.js";
 import { editCategory } from "./editCategory";
-import { runCategoryPage } from "./index.js";
+import { runCategoryPage, saveData } from "./index.js";
 
 const categoryDetail = (category) => {
     
@@ -71,6 +71,7 @@ const categoryDetail = (category) => {
     loadPage.headerDeleteIconDiv.addEventListener('click', () => {
         const index = categoryData.findIndex((item) => item.title === category.title);
         categoryData.splice(index, 1);
+        saveData();
         runCategoryPage(categoryData);
     })
 };
