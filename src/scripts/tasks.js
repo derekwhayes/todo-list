@@ -41,6 +41,9 @@ const tasks = (category) => {
             const listItem = document.createElement('li');
             listItem.classList.add('taskListItem');
             listItem.classList.add('listItem');
+            if (task.priority === 'high') {
+                listItem.classList.add('high-priority');
+            }
 
             const titleSpan = document.createElement('span');
             titleSpan.classList.add('titleSpan');
