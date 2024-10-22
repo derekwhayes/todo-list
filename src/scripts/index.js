@@ -58,15 +58,18 @@ const loadData = () => {
     console.log('data loaded');
     const storedData = localStorage.getItem('categoryData');
     categoryData = JSON.parse(storedData);
+    categoryData.forEach((category) => {
+        const tasks = category.tasks;
+        tasks.forEach((task) => {
+            task.dueDate = new Date(task.dueDate);
+        });
+    });
 };
 
 const dateFormatter = (date) => {
     
     let formattedDate;
-    // loaded from localstorage date is a string and needs to be converted
-    if (typeof date === 'string') {
-        date = new Date(date);
-    }
+    
     if (date.getFullYear() === new Date().getFullYear()) {
         formattedDate = new Intl.DateTimeFormat('en-US', {month: 'short', day: 'numeric'}).format(date);
     }
@@ -151,9 +154,11 @@ window.addEventListener('popstate', (e) => {
             runTaskPage(state.category);
         }
         else if (state.page === 'editTask') {
+            main.innerHTML = '';
             editTask(state.task, state.category);
         }
         else if (state.page === 'taskDetail') {
+            main.innerHTML = '';
             taskDetail(state.task, state.category);
         }
     }
