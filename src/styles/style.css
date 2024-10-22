@@ -212,3 +212,19 @@ button[type='submit'] {
     color: var(--tertiary);
     box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.295);
 }
+
+@media (min-width: 600px) {
+    body {
+        font-size: 20px;
+    }
+    
+    .categoryList,
+    form,
+    .list,
+    .detailContainer {
+        width: clamp(500px, 50%, 750px);
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+}
